@@ -1,25 +1,23 @@
 import React from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text } from "react-native";
 import { Button } from "../components/Button";
 import { FlatListItem } from "../components/FlatListItem";
 import { useShowAddTask } from "../navigation";
-
-export interface Task {
-  title: string;
-}
-const data: Task[] = [{ title: "comer" }, { title: "bailar" }];
+import { Container } from "../utils/styled";
+import { useTodos } from "../utils/TodoContext";
 
 export const Board = () => {
   const showAddTask = useShowAddTask();
+  const { allTodo } = useTodos();
   return (
-    <View>
-      <Text>Board</Text>
+    <Container>
       <FlatList
         keyExtractor={(item, index) => item.title + index}
-        data={data}
+        data={allTodo}
         renderItem={({ item }) => <FlatListItem item={item} />}
+        ListEmptyComponent={() => <Text>Please add a TODO</Text>}
       />
       <Button title="Add a task" onPress={showAddTask} />
-    </View>
+    </Container>
   );
 };

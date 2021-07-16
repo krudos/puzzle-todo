@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import { Text } from "react-native";
-import { Task } from "../screens/Board";
+import { Todo } from "../utils/TodoContext";
 
-export const FlatListItem: FC<Task> = ({ item }) => {
+interface Props {
+  item: Todo;
+}
+export const FlatListItem: FC<Props> = ({ item }) => {
   return <Text>{item.title}</Text>;
 };
