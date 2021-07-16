@@ -5,6 +5,6 @@ export const Container = styled.View`
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   flex: 1;
 `;

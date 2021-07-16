@@ -14,9 +14,8 @@ export const Button: FC<ButtonProps> = ({ title, onPress }) => {
   );
 };
 
-//background-color: : ${(props) => props.theme.green50};
 const ButtonContainer = styled.TouchableOpacity`
-  background-color: #5dbd76;
+  background-color: ${(props) => props.theme.green50};
   align-items: center;
   border-radius: 10px;
   margin-top: 20px;
@@ -25,5 +24,5 @@ const ButtonContainer = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   margin-top: 10px;
   margin-bottom: 10px;
-  color: white;
+  color: ${(props) => props.theme.white};
 `;

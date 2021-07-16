@@ -9,6 +9,7 @@ import { Screen } from "./navigation";
 
 import styled, { ThemeProvider } from "styled-components";
 import { TodoWrapper } from "./utils/TodoContext";
+import { IconButton } from "./components/IconButton";
 
 const Stack = createStackNavigator();
 
@@ -29,9 +30,9 @@ export default function App() {
               options={{
                 headerRight: () => (
                   <HeaderRightContainer>
-                    <Icon iconName="buscar" />
-                    <Icon iconName="campana" />
-                    <Icon iconName="hamb" />
+                    <IconButton iconName="search" />
+                    <IconButton iconName="bell" />
+                    <IconButton iconName="bars" />
                   </HeaderRightContainer>
                 ),
               }}

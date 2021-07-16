@@ -15,7 +15,7 @@ export const Board = () => {
         keyExtractor={(item, index) => item.title + index}
         data={allTodo}
         renderItem={({ item }) => <FlatListItem item={item} />}
-        ListEmptyComponent={() => <Text>Please add a TODO</Text>}
+        ListEmptyComponent={() => <Text>Please add a Task</Text>}
       />
       <Button title="Add a task" onPress={showAddTask} />
     </Container>
