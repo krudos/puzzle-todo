@@ -15,6 +15,7 @@ export const Board = () => {
     <View>
       <Text>Board</Text>
       <FlatList
+        keyExtractor={(item, index) => item.title + index}
         data={data}
         renderItem={({ item }) => <FlatListItem item={item} />}
       />

@@ -8,6 +8,8 @@ import { View } from "react-native";
 import { Icon } from "./components/Icon";
 import { Screen } from "./navigation";
 
+import styled from "styled-components/native";
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -19,11 +21,11 @@ export default function App() {
           component={Board}
           options={{
             headerRight: () => (
-              <View style={{ flexDirection: "row" }}>
+              <HeaderRightContainer>
                 <Icon iconName="buscar" />
                 <Icon iconName="campana" />
                 <Icon iconName="hamb" />
-              </View>
+              </HeaderRightContainer>
             ),
           }}
         />
@@ -32,3 +34,7 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const HeaderRightContainer = styled.View`
+  flex-direction: row;
+`;
