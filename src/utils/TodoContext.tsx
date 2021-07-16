@@ -3,6 +3,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export interface Todo {
   title: string;
+  deadLine: string;
+  startTime: string;
+  endTime: string;
+  remind: string;
+  repeat: string;
+  completed: boolean;
+  favorite: boolean;
 }
 
 interface TodoContextProps {
@@ -29,7 +36,7 @@ export const TodoWrapper: React.FC = ({ children }) => {
 
   const addTodo = useCallback(
     (item: Todo) => {
-      const data = [...todos, item];
+      const data = [item, ...todos];
       const jsonValue = JSON.stringify([...todos, item]);
       AsyncStorage.setItem(TODOS, jsonValue).then(() => {
         setTodos(data);

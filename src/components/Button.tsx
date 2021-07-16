@@ -5,10 +5,11 @@ import styled, { ThemeContext } from "styled-components";
 interface ButtonProps {
   title: string;
   onPress?: () => void;
+  disabled?: boolean;
 }
-export const Button: FC<ButtonProps> = ({ title, onPress }) => {
+export const Button: FC<ButtonProps> = ({ title, onPress, disabled }) => {
   return (
-    <ButtonContainer onPress={onPress}>
+    <ButtonContainer onPress={onPress} disabled={disabled}>
       <ButtonText>{title}</ButtonText>
     </ButtonContainer>
   );

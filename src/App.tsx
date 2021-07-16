@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Board } from "./screens/Board";
 import { AddTask } from "./screens/AddTask";
-import { Icon } from "./components/Icon";
 import { Screen } from "./navigation";
 
 import styled, { ThemeProvider } from "styled-components";
@@ -16,6 +15,9 @@ const Stack = createStackNavigator();
 const theme = {
   green50: "#5dbd76",
   white: "#ffffff",
+  black: "#000000",
+  gray: "#808080",
+  transparent: "transparent",
 };
 
 export default function App() {

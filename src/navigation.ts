@@ -8,7 +8,6 @@ export const Screen = {
 
 export const useShowAddTask = () => {
   const navigation = useNavigation();
-
   return useCallback(() => {
     navigation.navigate(Screen.AddTask);
   }, [navigation]);

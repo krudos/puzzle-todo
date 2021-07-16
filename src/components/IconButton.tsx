@@ -1,7 +1,4 @@
-import { TouchableOpacity } from "react-native";
-
 import React, { FC } from "react";
-
 import { Icon, IconNames } from "./Icon";
 import styled from "styled-components";
 
