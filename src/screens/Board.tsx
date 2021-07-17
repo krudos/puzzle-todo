@@ -8,10 +8,10 @@ import { Todo, useTodos } from "../utils/TodoContext";
 import styled from "styled-components";
 
 const filters = ["All", "Completed", "Uncompleted", "Favorite"] as const;
-type Filter = typeof filters[number];
+export type FilterType = typeof filters[number];
 
 export const Board = () => {
-  const [filter, setFilter] = useState<Filter>("All");
+  const [filter, setFilter] = useState<FilterType>("All");
   const showAddTask = useShowAddTask();
   const { allTodo } = useTodos();
 
@@ -24,12 +24,12 @@ export const Board = () => {
       case "Uncompleted":
         return allTodo.filter((value) => !value.completed);
       case "Favorite":
-        return allTodo.filter((value) => value.favorite);
+        return allTodo;
     }
   }, [allTodo, filter]);
 
   const changeFilter = useCallback(
-    (filterName: Filter) => {
+    (filterName: FilterType) => {
       if (filterName !== filter) {
         setFilter(filterName);
       }
@@ -50,8 +50,8 @@ export const Board = () => {
         <TodoFlatList
           keyExtractor={(item: Todo, index: number) => item.title + index}
           data={data}
-          renderItem={({ item }: { item: Todo }) => (
-            <FlatListItem item={item} />
+          renderItem={({ item, index }: { item: Todo; index: number }) => (
+            <FlatListItem item={item} index={index} currentFilter={filter} />
           )}
           ListEmptyComponent={() => <Text>No tasks</Text>}
         />
@@ -71,9 +71,10 @@ const FilterArea = styled.View`
   flex-direction: row;
   justify-content: space-evenly;
   padding-top: 10px;
-  margin-bottom: 20px;
-  border-bottom-width: 1px;
-  border-top-width: 1px;
+  padding-bottom: 10px;
+  height: 60px;
+  align-items: center;
+  border-bottom-width: 0.2px;
   border-color: ${(props) => props.theme.gray};
 `;
 

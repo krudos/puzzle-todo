@@ -17,6 +17,7 @@ const theme = {
   white: "#ffffff",
   black: "#000000",
   gray: "#808080",
+  lightGray: "#D3D3D3",
   transparent: "transparent",
 };
 
@@ -25,7 +26,10 @@ export default function App() {
     <TodoWrapper>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName={Screen.Board}>
+          <Stack.Navigator
+            initialRouteName={Screen.Board}
+            screenOptions={{ headerTitleAlign: "left" }}
+          >
             <Stack.Screen
               name={Screen.Board}
               component={Board}
@@ -39,7 +43,11 @@ export default function App() {
                 ),
               }}
             />
-            <Stack.Screen name={Screen.AddTask} component={AddTask} />
+            <Stack.Screen
+              name={Screen.AddTask}
+              component={AddTask}
+              options={{ headerBackTitleVisible: false }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
