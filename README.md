@@ -1,6 +1,11 @@
 # puzzleTodo
-## start project
+
+## start project iOS
 run `yarn install`  
-for iOS `yarn ios`  
-for android `yarn android`  
+run `yarn pod`  
+run `yarn ios`
+
+## start project android
+run `yarn install`  
+open the project with android studio
 
